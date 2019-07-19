@@ -1,0 +1,6 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/colorPrimaryLight" />
+    <item android:gravity="center"  >
+        <bitmap android:gravity="center" android:src="@drawable/logo_app_small" android:alpha="0.4"  />
+    </item>
+</layer-list>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <AutoCompleteTextView
+            android:id="@+id/txtFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscar DNI..."
+            android:gravity="center"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:maxLength="8"
+            android:inputType="number" />
+        <ImageButton
+            android:id="@+id/btnClear"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/activity_horizontal_margin_quarter"
+            android:src="@drawable/ic_clear_black" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/lblResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin_quarter"
+        android:gravity="center"
+        android:textColor="@color/color_400"
+        tools:text="Recurso Filtrado" />
+    <include
+        layout="@layout/csch_title_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

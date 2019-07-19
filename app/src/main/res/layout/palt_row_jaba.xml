@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rowJaba"
+    style="@style/AppTheme.CardView.row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lblNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Robert Lewandowski Nombre" />
+            <TextView
+                android:id="@+id/lblObs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Obs."
+                android:textColor="#ABff0000"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lblTurno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Bayern Munchen Turno" />
+            <TextView
+                android:id="@+id/lblPer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Per."
+                android:textColor="#ABff0000"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DNI: " />
+            <TextView
+                android:id="@+id/lblDni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="26189099" />
+            <TextView
+                android:id="@+id/lblNro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textSize="20sp"
+                tools:text="120" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

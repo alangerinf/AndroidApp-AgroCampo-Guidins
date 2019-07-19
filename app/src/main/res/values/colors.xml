@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2e435e</color>
+    <color name="colorPrimaryDark">#011c34</color>
+    <color name="colorPrimaryLight">#5a6e8b</color>
+    <color name="colorAccent">#00BEB2</color>
+    <color name="group_divider_color">#60444444</color>
+    <!-- Pallet TEAL -->
+    <!-- https://www.materialpalette.com/colors -->
+    <color name="color_50">#e0f2f1</color>
+    <color name="color_100">#b2dfdb</color>
+    <color name="color_200">#80cbc4</color>
+    <color name="color_300">#4db6ac</color>
+    <color name="color_400">#26a69a</color>
+    <color name="color_500">#009688</color>
+    <color name="color_600">#00897b</color>
+    <color name="color_700">#00796b</color>
+    <color name="color_800">#00695c</color>
+    <color name="color_900">#004d40</color>
+    <color name="color_A100">#a7ffeb</color>
+    <color name="color_A200">#64ffda</color>
+    <color name="color_A400">#1de9b6</color>
+    <color name="color_A700">#00bfa5</color>
+
+    <color name="colorDelete">#fa315b</color>
+    <color name="white">#ffffff</color>
+
+    <color name="colorCompleto">#00bfa5</color>
+    <color name="colorIncompleto">#fa315b</color>
+</resources>

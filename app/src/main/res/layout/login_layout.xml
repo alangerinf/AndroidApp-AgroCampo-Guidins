@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/imageview_logoapp_height"
+                android:alpha="0.65"
+                android:src="@drawable/logo_app" />
+            <EditText
+                android:id="@+id/txtUsuario"
+                style="@style/AppTheme.Login.UsernamePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24sp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_account"
+                android:hint="Usuario"
+                android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/txtPassword"
+                style="@style/AppTheme.Login.UsernamePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_lock"
+                android:hint="Contraseña"
+                android:layout_marginBottom="24sp"
+                android:inputType="textPassword" />
+            <TextView
+                android:id="@+id/txtCultivo"
+                style="@style/AppTheme.Login.UsernamePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_check"
+                android:hint="Selecciona una Planta"
+                android:layout_marginBottom="24sp"
+                android:clickable="true"/>
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/login_button_shape"
+                android:padding="@dimen/button_padding_default"
+                android:text="Ingresar"
+                android:textAllCaps="false"
+                android:textColor="#ccffffff"
+                android:textSize="@dimen/button_textsize_default" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -1,0 +1,171 @@
+<resources>
+    <string name="app_name">AppCosecha</string>
+    <!-- Defaults -->
+    <string name="telefono_default">000000000</string>
+    <!-- Descripciones -->
+    <string name="sincronizar_desc">Sincronizar descripción</string>
+    <string name="cosechar_desc">Cosechar descripción</string>
+    <string name="paletizar_desc">Paletizar descripción</string>
+    <string name="despachar_desc">Despachar descripción</string>
+    <string name="recepcionar_desc">Recepcionar descripción</string>
+    <string name="limpiar_desc">Limpiar descripción</string>
+    <!-- Cosecha -->
+    <string name="csch_lectura_jaba">Lectura de Envases</string>
+    <string name="csch_lecturar">Fundo</string>
+    <string name="csch_qr">QR</string>
+    <string name="csch_resumen">Resumen</string>
+    <!-- Cosecha Reporte -->
+    <string name="cschrept_reporte">Reporte de Cosecha</string>
+    <string name="cschrept_cosechador">Cosechador</string>
+    <string name="cschrept_turno">Turno</string>
+    <string name="cschrept_dni">DNI</string>
+    <!-- Acciones -->
+    <string name="grabar">Grabar</string>
+    <string name="eliminar">Eliminar</string>
+    <!-- Pallet -->
+    <string name="palt_crear_pallet">Pallet</string>
+    <string name="palt_leer_jaba">Envases</string>
+    <string name="palt_resumen">Resumen</string>
+    <!-- Viaje -->
+    <string name="desp_crear_viaje">Viaje</string>
+    <string name="desp_leer_pallet">Pallet</string>
+    <string name="desp_resumen">Resumen</string>
+    <!-- Alerts -->
+    <string name="advertencia">Advertencia</string>
+    <string name="error">Error</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="alerta">Alerta</string>
+    <string name="seleccione">Seleccione</string>
+    <!--<string name="ok">Ok</string>-->
+    <string name="info">Info</string>
+    <string name="reabrir">Reabrir</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="continuar">Continuar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="seleccionar">Seleccionar</string>
+    <string name="cancelar">Cancelar</string>
+    <!-- General -->
+    <string name="upps_error_aplicacion">¡Ups ocurrió un error en la aplicación!</string>
+    <string name="supero_tiempo_prueba">Supero el tiempo límite de prueba.\nFavor contactar con el Desarrollador.</string>
+    <string name="ups_error_inesperado">Ocurrió un error inesperado. Vuelva a intentarlo.</string>
+    <string name="lea_qr_antes_continuar">Lea un código QR válido antes de continuar.</string>
+    <!-- Splash -->
+    <string name="cargando_cultivos">Cargando Cultivos</string>
+    <string name="cargando_camiones">Cargando Vehículos</string>
+    <string name="ups_no_cargaron_cultivos">No se cargó la lista de Cultivos.</string>
+    <string name="ups_no_cargaron_camiones">No se cargó la lista de Vehículos.</string>
+    <string name="ups_no_cargaron_plantas">No se cargó la lista de Plantas.</string>
+    <string name="error_trabajo_sin_conexion">No se puede trabajar en modo sin conexión, porque no fueron cargados todos los maestros respectivos.</string>
+    <!-- Login -->
+    <string name="seleccione_un_cultivo">Seleccione un Cultivo</string>
+    <string name="autenticando">Autenticando</string>
+    <string name="conectando_con_servidor">Conectando con el Servidor</string>
+    <string name="cargando_fundos">Cargando Fundos</string>
+    <string name="cargando_turnos">Cargando Turnos</string>
+    <string name="cargando_acopios">Cargando Acopios</string>
+    <string name="cargando_plantas">Cargando Plantas</string>
+    <string name="credenciales_invalidas">Credenciales inválidas.</string>
+    <string name="cargando_informacion_usuario">Obteniendo su Información.</string>
+    <string name="usuario_sin_fundos_asignados">Lo sentimos no tiene Fundos asignados.</string>
+    <string name="usuario_sin_turnos_asignados">Lo sentimos no tiene Turnos asignados.</string>
+    <string name="usuario_sin_acopios_asignados">Lo sentimos no tiene Acopios asignados.</string>
+    <!-- Menu -->
+    <string name="sincronizar">Sincronizar</string>
+    <string name="descarga_inicial">Descarga Inicial</string>
+    <string name="enviar_datos">Enviar Datos</string>
+    <string name="cosechar">Cosechar</string>
+    <string name="lectura_jabas">Lectura de Envases</string>
+    <string name="reportes">Reportes</string>
+    <string name="paletizar">Paletizar</string>
+    <string name="crear_pallete">Crear Pallet</string>
+    <string name="completar_pallete">Completar Pallet</string>
+    <string name="agregar_quitar_jabas">Agregar / Quitar Envases</string>
+    <string name="modificar_pallete">Modificar Pallet</string>
+    <string name="despachar">Despachar</string>
+    <string name="crear_viaje">Crear Viaje</string>
+    <string name="completar_viaje">Completar Viaje</string>
+    <string name="agregar_quitar_pallete">Agregar / Quitar Pallet</string>
+    <string name="modificar_viaje">Modificar Viaje</string>
+    <string name="recepcionar">Recepcionar</string>
+    <string name="leer_pallete">Leer Pallet</string>
+    <string name="editar_pallete">Editar Pallet</string>
+    <string name="eliminar_pallete">Eliminar Pallet</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="acerca_de">Acerca de App</string>
+    <string name="salir">Salir</string>
+    <!-- Dashboard -->
+    <string name="desea_sincronizar_ahora">¿Desea sincronizar la data ahora?</string>
+    <string name="ups_inesperado_sincronizacion">Ocurrió un error inesperado en la sincronización.\nVuelva a intentarlo.</string>
+    <string name="desea_salir_aplicacion">¿Desea salir del aplicativo?</string>
+    <string name="confirmacion_para_eliminar_data_local">¿Desea eliminar la data local?\nNo se olvide de sincronizar antes de eliminar la data local.</string>
+    <string name="se_limpiaron_registros">Se limpiaron los registros correctamente.</string>
+    <string name="ups_inesperado_limpieza">Ocurrió un error inesperado en la limpieza de registros locales.\nVuelva a intentarlo.</string>
+    <string name="Sincronizando">Sincronizando</string>
+    <string name="preparando_cosecha_enviar">Preparando Cosechas para enviar</string>
+    <string name="preparando_pallet_enviar">Preparando Pallets para enviar</string>
+    <string name="preparando_despacho_enviar">Preparando Despachos para enviar</string>
+    <string name="preparando_recepcion_enviar">Preparando Recepciones para enviar</string>
+    <!-- Codigos qr -->
+    <string name="qr">QR</string>
+    <string name="qr_invalido">Código QR inválido.</string>
+    <string name="qr_invalido_jaba">Código QR de Envase inválido.</string>
+    <string name="fecha_codigo_qr_invalida">Fecha Código QR Inválida.</string>
+
+    <string name="qr_invalido_pallet">Código QR de Pallet inválido.</string>
+    <string name="qr_invalido_vehiculo">Código QR de Vehículo inválido.</string>
+    <string name="qr_ya_leido">Código QR ya leído.</string>
+    <string name="qr_debe_ser_diferente">El código QR leído tiene que ser diferente del actual.</string>
+    <string name="lea_qr_valido_para_continuar">Lea un código QR válido antes de continuar.</string>
+    <string name="lea_qr_camion_para_continuar">Lea un Codigo QR de Vehículo antes de continuar.</string>
+    <string name="lea_qr_pallet_para_continuar">Lea un Codigo QR de Pallet antes de continuar.</string>
+    <string name="qr_jaba_ya_leido">Código QR de Envase ya leido.</string>
+    <!-- Cosecha -->
+    <string name="envase_observado">Envase Observado</string>
+    <string name="envase_perdido">Envase Perdido</string>
+    <string name="agrege_registro_para_continuar">Agregue algún registro antes de continuar.</string>
+    <string name="confirmacion_registro_local">Se guardó localmente los registros.\nNo se olvide de sincronizar.</string>
+    <string name="jabas_leidas">Envases leídos</string>
+    <string name="seleccione_fundo_para_continuar">Seleccione un Fundo antes de continuar.</string>
+    <string name="seleccione_turno_para_continuar">Seleccione un Turno antes de continuar.</string>
+    <string name="seleccione_planta_para_continuar">Seleccione una Planta antes de continuar.</string>
+    <string name="seleccione_fundo">Seleccione un Fundo</string>
+    <string name="seleccione_turno">Seleccione un Turno</string>
+    <string name="nro">#</string>
+    <string name="cosechador">Cosechador</string>
+    <string name="jabas">Envases</string>
+    <string name="turno">Turno</string>
+    <!-- Despacho -->
+    <string name="viajes">Viajes</string>
+    <string name="viaje">Viaje</string>
+    <string name="qr_pallet_ya_leido">Código QR de Pallet ya leído.</string>
+    <string name="viajes_registrados">Viajes registrados.</string>
+    <string name="desea_abrir_registro">¿Desea reabrir el Registro?</string>
+    <string name="nro_viajes_leidos">Nro de Viajes leídos</string>
+    <string name="pallets_leidos">Pallets leídos.</string>
+    <string name="se_eliminaron_registros">Se eliminó correctamente el registro.</string>
+    <string name="se_marcaron_eliminar_registros">Se marco el registro para eliminar.\nCuando guarde los cambios será eliminado.</string>
+    <string name="registro_no_borrado_ya_sync">El registro no puede ser eliminado por que ya fue sincronizado.\nConsulte con el área de sistema si desea eliminarlo.</string>
+    <string name="desea_borrar_registro_local">Desea borrar el registro guardado localmente.</string>
+    <string name="agrege_accion_para_continuar">Agregue alguna acción al registro antes de continuar.</string>
+    <string name="registro_no_encontrado_para_eliminar">No se pudo encontrar el registro a eliminar.</string>
+    <!-- Pallet -->
+    <string name="completar_palletizado">Completar Pallet</string>
+    <string name="pallets_registrados">Pallets registrados.</string>
+    <string name="confirmacion_actualizacion_local">Se actualizaron localmente los registros.\nNo se olvide de sincronizar.</string>
+    <string name="pallet">Pallet</string>
+    <string name="pallets">Pallets</string>
+    <string name="acopio">Acopio</string>
+    <!--  Recepcion -->
+    <string name="kg">kg.</string>
+    <string name="ingrese_peso_valido">Ingrese un peso válido.</string>
+    <string name="ingrese_peso">Ingrese el Peso</string>
+    <string name="codigo">Código</string>
+    <string name="planta">Planta</string>
+    <string name="resumen">Resumen</string>
+    <string name="seleccione_planta">Seleccione una Planta</string>
+    <string name="presione_icono_flotante_iniciar_lecturado_qr">Presione el icono flotante para iniciar la lectura de códigos QR.</string>
+    <string name="sincronizacion_completa">Se sincronizaron correctamente los registros.</string>
+    <string name="cantidad_de_personas">Cantidad de Personas</string>
+    <string name="hashtag">#</string>
+</resources>

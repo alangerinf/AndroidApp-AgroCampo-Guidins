@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin">
+    <TextView
+        android:id="@+id/lblTitle"
+        style="@style/AppTheme.Fragment.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leer Pallet" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="260sp"
+        android:background="@drawable/ic_qr_gray"></View>
+    <Button
+        style="@style/AppTheme.Fragment.Button"
+        android:id="@+id/btnLecturar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leer" />
+    <Button
+        style="@style/AppTheme.Fragment.Button"
+        android:id="@+id/btnSiguiente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Siguiente" />
+</LinearLayout>

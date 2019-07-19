@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="40dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/imageview_logoapp_height"
+            android:alpha="0.65"
+            android:src="@drawable/logo_app_small" />
+        <ProgressBar
+            android:id="@+id/pgbLoader"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:progress="0"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="12dp"
+            android:id="@+id/lblInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#d2d2d2"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="Conectando con el Servidor" />
+    </LinearLayout>
+</FrameLayout>

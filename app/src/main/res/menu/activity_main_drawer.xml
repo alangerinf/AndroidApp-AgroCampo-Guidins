@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sincronizar"
+            android:icon="@drawable/ic_dashboard_sync"
+            android:title="@string/sincronizar" />
+        <item
+            android:id="@+id/nav_cosechar"
+            android:icon="@drawable/ic_dashboard_harvest"
+            android:title="@string/cosechar" />
+        <item
+            android:id="@+id/nav_paletizar"
+            android:icon="@drawable/ic_dashboard_palletize"
+            android:title="@string/paletizar" />
+        <item
+            android:id="@+id/nav_despachar"
+            android:icon="@drawable/ic_dashboard_despachar"
+            android:title="@string/despachar" />
+        <item
+            android:id="@+id/nav_recepcionar"
+            android:icon="@drawable/ic_dashboard_recepcionar"
+            android:title="@string/recepcionar" />
+        <item
+            android:id="@+id/nav_limpiar"
+            android:icon="@drawable/ic_dashboard_clear"
+            android:title="@string/limpiar" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/salir" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_acerca"
+            android:title="@string/acerca_de" />
+    </group>
+
+
+    <!--
+    <item android:title="@string/sincronizar"
+        android:icon="@drawable/ic_dashboard_sync" >
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Descarga Inicial" />
+            <item
+                android:id="@+id/nav_send"
+                android:title="Enviar Datos" />
+        </menu>
+    </item>
+    -->
+
+
+    <!--
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_dashboard_clear"
+            android:title="@string/limpiar" />
+    </group>
+    -->
+
+</menu>

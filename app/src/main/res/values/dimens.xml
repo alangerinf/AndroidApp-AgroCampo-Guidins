@@ -1,0 +1,33 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_quarter">8dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">226dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+
+    <dimen name="imageview_logoapp_height">180dp</dimen>
+
+    <dimen name="edittext_padding_default">8dp</dimen>
+    <dimen name="edittext_textsize_default">16sp</dimen>
+
+    <dimen name="button_padding_default">8dp</dimen>
+    <dimen name="button_textsize_default">18sp</dimen>
+
+    <dimen name="dashboard_menu_height_default">50dp</dimen>
+    <dimen name="dashboard_menu_textsize_default">12sp</dimen>
+
+    <dimen name="dashboard_submenu_width_default">285dp</dimen>
+    <dimen name="dashboard_submenu_height_default">365dp</dimen>
+    <dimen name="dashboard_submenu_image_height_default">90dp</dimen>
+    <dimen name="dashboard_submenu_title_textsize_default">16sp</dimen>
+    <dimen name="dashboard_submenu_subtitle_textsize_default">12sp</dimen>
+
+    <dimen name="dashboard_submenu_item_height_default">80dp</dimen>
+
+    <dimen name="button_delete_width">80dp</dimen>
+    <dimen name="button_delete_corner">4dp</dimen>
+
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Cosecha.Reporte.Title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_title">
+    <android.support.constraint.Guideline
+        android:id="@+id/gLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+    <TextView
+        android:id="@+id/titPos"
+        style="@style/AppTheme.Cosecha.Reporte.Title.Value"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/gLine1"
+        tools:text="#" />
+    <TextView
+        android:id="@+id/titNombre"
+        style="@style/AppTheme.Cosecha.Reporte.Title.Value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="clip_vertical"
+        android:background="@drawable/border"
+        android:minHeight="36dp"
+        app:layout_constraintLeft_toRightOf="@+id/titPos"
+        app:layout_constraintRight_toLeftOf="@+id/titNro"
+        tools:text="Cosechador" />
+    <TextView
+        android:id="@+id/titNro"
+        style="@style/AppTheme.Cosecha.Reporte.Title.Value"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        app:layout_constraintLeft_toRightOf="@id/gLine2"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="val" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,121 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.EditText">
+    </style>
+    <style name="AppTheme.CardView">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="AppTheme.CardView.row">
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+
+    <!-- AppTheme Splash -->
+    <style name="AppThemeSplash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+    <!-- AppTheme Login Style -->
+    <style name="AppTheme.Login"></style>
+    <style name="AppTheme.Login.UsernamePassword">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:padding">@dimen/edittext_padding_default</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColorHint">#d2d2d2</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:textSize">@dimen/edittext_textsize_default</item>
+        <item name="android:background">@drawable/edit_shape</item>
+    </style>
+    <!-- AppTheme Dashboard Style -->
+    <style name="AppTheme.Dashboard"></style>
+    <style name="AppTheme.Dashboard.CardViewItem">
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="AppTheme.Dashboard.LinearLayoutItem">
+        <item name="android:layout_gravity">center_horizontal|center_vertical</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+    <style name="AppTheme.Dashboard.ImageViewItem">
+        <item name="android:layout_gravity">clip_horizontal</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="AppTheme.Dashboard.TitleItem">
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="android:textSize">@dimen/dashboard_menu_textsize_default</item>
+    </style>
+    <style name="AppTheme.Dashboard.SubItem">
+    </style>
+    <style name="AppTheme.Dashboard.SubItem.Info">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/dashboard_menu_textsize_default</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+    <style name="AppTheme.Dashboard.SubItem.Title">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppTheme.Fragment"></style>
+    <style name="AppTheme.Fragment.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">32sp</item>
+        <item name="android:layout_marginBottom">32sp</item>
+    </style>
+    <style name="AppTheme.Fragment.SubTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">8sp</item>
+        <item name="android:layout_marginBottom">16sp</item>
+    </style>
+    <style name="AppTheme.Fragment.Label">
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginTop">16sp</item>
+        <item name="android:layout_marginBottom">8sp</item>
+    </style>
+    <style name="AppTheme.Fragment.Label.Spinner">
+        <item name="android:layout_marginBottom">14sp</item>
+    </style>
+    <style name="AppTheme.Fragment.Spinner"></style>
+    <style name="AppTheme.Fragment.Button">
+        <item name="android:layout_marginTop">8sp</item>
+        <item name="android:layout_marginBottom">8sp</item>
+    </style>
+    <!-- AppTheme Cosecha Style -->
+    <style name="AppTheme.Cosecha"></style>
+    <style name="AppTheme.Cosecha.Reporte"></style>
+    <style name="AppTheme.Cosecha.Reporte.Title">
+    </style>
+    <style name="AppTheme.Cosecha.Reporte.Title.Value">
+        <item name="android:padding">@dimen/activity_horizontal_margin_quarter</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppTheme.Cosecha.Reporte.Item">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+</resources>
