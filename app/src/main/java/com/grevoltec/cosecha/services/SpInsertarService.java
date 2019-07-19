@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 public interface SpInsertarService {
 
     //Get: api/sp_sincronizar_cosecha_movil/1/1/asdfas/2017-10-15/asdasdasd/946831855/13/3
-    @GET("api/sp_sincronizar_cosecha_movil/{iduser}/{idtur}/{codigoqr}/{horaenvase}/{imeiequipo}/{nroequipo}/{envaseobs}/{envaseper}")
+    @GET("api/sp_sincronizar_cosecha_movil/{iduser}/{idtur}/{codigoqr}/{horaenvase}/{imeiequipo}/{nroequipo}/{envaseobs}/{envaseper}/{cantpersonas}")
     @Headers({"Accept: application/json"})
     Call<List<SpSincronizarCosechaMovilResult>> GetSincronizarMovilCosecha(@Path("iduser") int iduser, @Path("idtur") int idtur, @Path("codigoqr") String codigoqr, @Path("horaenvase") String horaenvase, @Path("imeiequipo") String imeiequipo, @Path("nroequipo") String nroequipo, @Path("envaseobs") int envaseobs, @Path("envaseper") int envaseper,@Path("cantpersonas") int cantPersonas);
 

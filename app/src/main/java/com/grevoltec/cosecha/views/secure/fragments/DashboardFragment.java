@@ -424,8 +424,16 @@ public class DashboardFragment extends Fragment {
             List<ViajeEntity> viajeEntities = AppCosecha.getHelper().getViajeDao().queryForAll();
             for (ViajeEntity entity: viajeEntities) {
                 if(!entity.isSync() && entity.getViajecompleto() == 1){
-                    Call<List<SpSincronizarViajeMovilResult>> call = spInsertarService.GetSincronizarMovilViaje(entity.getIduser(), entity.getQrcamion(), entity.getHoracamion(),
-                            entity.getViajecompleto(), entity.getImeiequipo(), AppCosecha.getTelefono(entity.getNumeroequipo()), entity.getQrpallet(), entity.getHorapallet());
+                    Call<List<SpSincronizarViajeMovilResult>> call = spInsertarService.GetSincronizarMovilViaje(
+                            entity.getIduser(),
+                            entity.getQrcamion(),
+                            entity.getHoracamion(),
+                            entity.getViajecompleto(),
+                            entity.getImeiequipo(),
+                            AppCosecha.getTelefono(entity.getNumeroequipo()),
+                            entity.getQrpallet(),
+                            entity.getHorapallet()
+                    );
                     List<SpSincronizarViajeMovilResult> result = call.execute().body();
                     SpSincronizarViajeMovilResult iResult = result.get(0);
                     entity.setSynCodigo(""+iResult.getCodigo());
@@ -437,8 +445,16 @@ public class DashboardFragment extends Fragment {
             List<RecepcionEntity> recepcionEntities = AppCosecha.getHelper().getRecepcionDao().queryForAll();
             for (RecepcionEntity entity: recepcionEntities) {
                 if(!entity.isSync()){
-                    Call<List<SpSincronizarRecepcionMovilResult>> call = spInsertarService.GetSincronizarMovilRecepcion(entity.getIdplanta(), entity.getFecharecep(), entity.getIduser(),
-                            entity.getQrpallet(), entity.getHorapallet(), entity.getImeiequipo(), AppCosecha.getTelefono(entity.getNroequipo()), entity.getPesopallet());
+                    Call<List<SpSincronizarRecepcionMovilResult>> call = spInsertarService.GetSincronizarMovilRecepcion(
+                            entity.getIdplanta(),
+                            entity.getFecharecep(),
+                            entity.getIduser(),
+                            entity.getQrpallet(),
+                            entity.getHorapallet(),
+                            entity.getImeiequipo(),
+                            AppCosecha.getTelefono(entity.getNroequipo()),
+                            entity.getPesopallet()
+                    );
                     List<SpSincronizarRecepcionMovilResult> result = call.execute().body();
                     SpSincronizarRecepcionMovilResult iResult = result.get(0);
                     entity.setSynCodigo(""+iResult.getCodigo());
