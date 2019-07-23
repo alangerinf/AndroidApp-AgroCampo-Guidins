@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -371,6 +372,8 @@ public class DashboardFragment extends Fragment {
         }
     }
 
+    String TAG = DashboardFragment.class.getSimpleName();
+
     @Background
     protected void taskSync(final SecureActivity activity) {
         spListarService = ServiceManager.getRetrofit().create(SpListarService.class);
@@ -380,6 +383,9 @@ public class DashboardFragment extends Fragment {
             //Cosecha
             showMessage(getString(R.string.preparando_cosecha_enviar));
             List<CosechaEntity> cosechaEntities = AppCosecha.getHelper().getCosechaDao().queryForAll();
+
+            Log.d(TAG,"tamano envio coscha "+cosechaEntities.size());
+
             for (CosechaEntity entity: cosechaEntities) {
                 if(!entity.isSync()){
                     Call<List<SpSincronizarCosechaMovilResult>> call = spInsertarService.GetSincronizarMovilCosecha(
@@ -394,6 +400,7 @@ public class DashboardFragment extends Fragment {
                             entity.getCantPersonas()
                     );
                     List<SpSincronizarCosechaMovilResult> result = call.execute().body();
+
                     SpSincronizarCosechaMovilResult iResult = result.get(0);
                     entity.setSynCodigo(""+iResult.getCodigo());
                     AppCosecha.getHelper().getCosechaDao().update(entity);
