@@ -163,7 +163,7 @@ public class PaltPalletEditaTabFragment extends AbsFragment implements IPaltCrea
 
     @Override
     public void validateQRJaba(String qr) throws AppException {
-        QrUtils.QR_JABAS.validateQR(qr);
+        QrUtils.QR_JABAS.validateQR(qr,true);
         for (PalletEntity entity: items) {
             if(qr.equalsIgnoreCase(entity.getQrjaba())) throw new AppException("Código QR ya leído.").setCode(AppException.ERROR_DUPLICATE);
         }

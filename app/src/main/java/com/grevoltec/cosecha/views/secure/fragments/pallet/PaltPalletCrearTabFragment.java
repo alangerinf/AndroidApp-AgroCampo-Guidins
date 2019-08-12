@@ -4,6 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -152,8 +153,8 @@ public class PaltPalletCrearTabFragment extends AbsFragment implements IPaltCrea
 
     @Override
     public void validateQRJaba(String qr) throws AppException {
-        QrUtils.QR_JABAS.validateQR(qr);
-        for (PalletEntity entity: items) {
+        QrUtils.QR_JABAS.validateQR(qr,false);
+        for (PalletEntity entity: items){
             if(qr.equalsIgnoreCase(entity.getQrjaba())) throw new AppException(getString(R.string.qr_jaba_ya_leido));
         }
     }

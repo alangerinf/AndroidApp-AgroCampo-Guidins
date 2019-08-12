@@ -138,7 +138,7 @@ public class RecepPalletTabFragment extends AbsFragment implements IRecepPallet 
     public void validateQR(String qr) throws AppException {
         QrUtils.QR_PALLETS.validateQR(qr);
         for (RecepcionEntity entity: recepcion) {
-            if(qr.equalsIgnoreCase(entity.getQrpallet())) throw new AppException(getString(R.string.qr_ya_leido));
+            if(qr.equalsIgnoreCase(entity.getQrpallet())) throw new AppException(getString(R.string.qr_ya_leido_x));
         }
     }
 

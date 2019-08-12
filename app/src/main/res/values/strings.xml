@@ -114,7 +114,12 @@
 
     <string name="qr_invalido_pallet">Código QR de Pallet inválido.</string>
     <string name="qr_invalido_vehiculo">Código QR de Vehículo inválido.</string>
+<!--
     <string name="qr_ya_leido">Código QR ya leído.</string>
+-->
+
+    <string name="qr_ya_leido_x">Código QR ya leído..</string>
+    <string name="qr_ya_leido_xx">Código QR ya leído...</string>
     <string name="qr_debe_ser_diferente">El código QR leído tiene que ser diferente del actual.</string>
     <string name="lea_qr_valido_para_continuar">Lea un código QR válido antes de continuar.</string>
     <string name="lea_qr_camion_para_continuar">Lea un Codigo QR de Vehículo antes de continuar.</string>

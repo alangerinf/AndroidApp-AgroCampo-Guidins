@@ -14,7 +14,7 @@ public class QrUtils {
 
     public static class  QR_JABAS{
 
-        public static void validateQR(String qr) throws AppException{
+        public static void validateQR(String qr,boolean verificarDuplicado) throws AppException{
             if(qr == null) throw new AppException(getContext().getString(R.string.qr_invalido));
             if(qr.length() != 36) throw new AppException(getContext().getString(R.string.qr_invalido_jaba));
             if(!qr.startsWith("J")) throw new AppException(getContext().getString(R.string.qr_invalido_jaba));
@@ -30,17 +30,23 @@ public class QrUtils {
             if(!fechaQR.equals(modifiedDate)){
                 throw new AppException(getContext().getString(R.string.fecha_codigo_qr_invalida));
             }
-            List<CosechaEntity> data = null;
-            try {
-                data = AppCosecha.getHelper().getCosechaDao().queryForAll();
-                for (CosechaEntity entity: data) {
-                    if(entity.getCodigoqr().equals(qr)){
-                        throw new AppException(getContext().getString(R.string.qr_ya_leido));
+
+            if(verificarDuplicado){
+                List<CosechaEntity> data = null;
+                try {
+                    data = AppCosecha.getHelper().getCosechaDao().queryForAll();
+                    for (CosechaEntity entity: data){
+                        if(entity.getCodigoqr().equals(qr)){
+
+                            throw new AppException(getContext().getString(R.string.qr_ya_leido_xx));
+                        }
                     }
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
+
+
 
 
         }

@@ -153,9 +153,9 @@ public class CschJabaTabFragment extends AbsFragment implements ICschJaba {
 
     @Override
     public void validateQR(String qr) throws AppException {
-        QrUtils.QR_JABAS.validateQR(qr);
+        QrUtils.QR_JABAS.validateQR(qr,true);
         for (CosechaEntity entity: cosecha) {
-            if(qr.equalsIgnoreCase(entity.getCodigoqr())) throw new AppException(getString(R.string.qr_ya_leido));
+            if(qr.equalsIgnoreCase(entity.getCodigoqr())) throw new AppException(getString(R.string.qr_ya_leido_x));
         }
     }
 
