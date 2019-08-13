@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -164,9 +165,11 @@ public class CschSelFundoFragment extends AbsFragment {
         }
         onStepChangeListener.goToSecondStep(fundoSelected, turnoSelected,cantPersonas);
     }
+    String TAG = CschSelFundoFragment.class.getSimpleName();
 
     @Click(R.id.selFundo)
     protected void onClickSelFundo(){
+        Log.d(TAG,"onClickSelFundo");
         final List<FundoEntity> fundos = getFundos();
         if(fundos.size() > 0){
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -190,7 +193,7 @@ public class CschSelFundoFragment extends AbsFragment {
             builder.setPositiveButton(R.string.seleccionar, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(idx > 0) {
+                    if(idx >= 0) {
                         fundoSelected = fundos.get(idx);
                         onChangeFundoSelected();
                     }
