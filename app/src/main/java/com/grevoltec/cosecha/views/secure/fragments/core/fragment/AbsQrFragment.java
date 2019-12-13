@@ -209,8 +209,6 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
         }
     }
 
-
-
     protected void requestCameraPermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CAMERA)) {
             Snackbar.make(qrLayout, "Camera access is required to display the camera preview.",
