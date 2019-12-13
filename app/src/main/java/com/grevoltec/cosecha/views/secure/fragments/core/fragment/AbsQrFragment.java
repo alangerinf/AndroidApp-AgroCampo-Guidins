@@ -15,7 +15,7 @@ import com.grevoltec.cosecha.R;
 
 import java.util.Date;
 
-public abstract class AbsQrFragment extends AbsFragment implements ActivityCompat.OnRequestPermissionsResultCallback,git s {
+public abstract class AbsQrFragment extends AbsFragment implements ActivityCompat.OnRequestPermissionsResultCallback, QRCodeReaderView.OnQRCodeReadListener {
 
     protected static final int MY_PERMISSION_REQUEST_CAMERA = 0;
 
