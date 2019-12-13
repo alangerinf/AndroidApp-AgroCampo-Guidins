@@ -73,12 +73,15 @@ public class CschJabaLeerFragment extends AbsQrFragment {
             lblError.setText(R.string.ups_error_inesperado);
             rowError.setVisibility(View.VISIBLE);
         }
+/*
         btnLecturar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 stopCameraQR();
             }
         }, 200);
+
+ */
     }
 
     @Click(R.id.btnLecturar)
@@ -101,6 +104,16 @@ public class CschJabaLeerFragment extends AbsQrFragment {
             lblError.setText(R.string.lea_qr_antes_continuar);
             rowError.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onTorchOn() {
+
+    }
+
+    @Override
+    public void onTorchOff() {
+
     }
 
     /* JabaViewHolder */

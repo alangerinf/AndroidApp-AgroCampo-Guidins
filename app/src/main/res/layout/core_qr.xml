@@ -16,18 +16,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ic_qr_gray"
+            android:focusable="true"
             android:clickable="true" />
-        <com.dlazaro66.qrcodereaderview.QRCodeReaderView
-            android:id="@+id/qrdecoderview"
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/zxing_barcode_scanner"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:visibility="gone" />
-        <com.grevoltec.cosecha.PointsOverlayView
-            android:id="@+id/points_overlay_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:zxing_scanner_layout="@layout/custom_barcode_scanner"/>
     </FrameLayout>
 </android.support.v7.widget.CardView>

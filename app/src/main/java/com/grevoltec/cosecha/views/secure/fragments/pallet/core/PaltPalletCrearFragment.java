@@ -76,12 +76,15 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
             lblError.setText(R.string.ups_error_inesperado);
             rowError.setVisibility(View.VISIBLE);
         }
+        /*
         btnLecturar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 stopCameraQR();
             }
         }, 200);
+
+         */
     }
 
     @Click(R.id.btnLecturar)
@@ -102,6 +105,16 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
             return;
         }
         onStepChangeListener.goToSecondStep(qr);
+    }
+
+    @Override
+    public void onTorchOn() {
+
+    }
+
+    @Override
+    public void onTorchOff() {
+
     }
 
     /* PalletHeadViewHolder */

@@ -87,12 +87,15 @@ public class DespViajeEditarFragment extends AbsQrFragment implements IViajeModi
             lblError.setText(R.string.ups_error_inesperado);
             rowError.setVisibility(View.VISIBLE);
         }
+        /*
         rowError.postDelayed(new Runnable() {
             @Override
             public void run() {
                 stopCameraQR();
             }
         }, 200);
+
+         */
     }
 
     @Override
@@ -119,6 +122,16 @@ public class DespViajeEditarFragment extends AbsQrFragment implements IViajeModi
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onTorchOn() {
+
+    }
+
+    @Override
+    public void onTorchOff() {
+
     }
 
     /* ViajeViewHolder */

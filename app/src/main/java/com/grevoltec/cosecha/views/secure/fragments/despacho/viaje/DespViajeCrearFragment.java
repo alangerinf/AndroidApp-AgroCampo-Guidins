@@ -78,12 +78,14 @@ public class DespViajeCrearFragment extends AbsQrFragment {
             lblError.setText(R.string.ups_error_inesperado);
             rowError.setVisibility(View.VISIBLE);
         }
+        /*
         btnLecturar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 stopCameraQR();
             }
         }, 200);
+         */
     }
 
     private String getPlaca(String qr){
@@ -116,6 +118,16 @@ public class DespViajeCrearFragment extends AbsQrFragment {
             return;
         }
         onStepChangeListener.goToSecondStep(qr);
+    }
+
+    @Override
+    public void onTorchOn() {
+
+    }
+
+    @Override
+    public void onTorchOff() {
+
     }
 
     /* CamionViewHolder */

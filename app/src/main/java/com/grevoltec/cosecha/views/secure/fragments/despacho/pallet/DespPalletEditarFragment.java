@@ -94,12 +94,17 @@ public class DespPalletEditarFragment extends AbsQrFragment {
             rowError.setVisibility(View.VISIBLE);
             Toast.makeText(AppCosecha.getContext(), ex1.getMessage(), Toast.LENGTH_LONG).show();
         }
+        /*
         btnLecturar.postDelayed(new Runnable() {
             @Override
             public void run() {
                 stopCameraQR();
             }
         }, 200);
+
+
+         */
+
     }
 
     @Click(R.id.btnLecturar)
@@ -142,6 +147,16 @@ public class DespPalletEditarFragment extends AbsQrFragment {
             lblError.setText(R.string.ups_error_inesperado);
             rowError.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onTorchOn() {
+
+    }
+
+    @Override
+    public void onTorchOff() {
+
     }
 
     /* ViajeViewHolder */
