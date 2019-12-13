@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.grevoltec.cosecha.storages.SessionManager;
 import com.grevoltec.cosecha.views.access.fragments.auth.LoginFragment_;
 import com.grevoltec.cosecha.views.access.fragments.auth.SplashFragment_;
 
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onPostViews(savedInstanceState);
+
+        if(SessionManager.getUser(this)!=null){
+            loadActivitySecure();
+        }
     }
 
 

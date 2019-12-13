@@ -37,6 +37,7 @@ import com.grevoltec.cosecha.services.models.response.SpSincronizarCosechaMovilR
 import com.grevoltec.cosecha.services.models.response.SpSincronizarPalletMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpSincronizarRecepcionMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpSincronizarViajeMovilResult;
+import com.grevoltec.cosecha.storages.SessionManager;
 import com.grevoltec.cosecha.util.AppException;
 import com.grevoltec.cosecha.views.secure.fragments.cosecha.jaba.CschJabaTabFragment_;
 import com.grevoltec.cosecha.views.secure.fragments.cosecha.reporte.CschReptTabFragment_;
@@ -129,6 +130,7 @@ public class DashboardFragment extends Fragment {
                 .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        SessionManager.deleteUser(getActivity());
                         System.exit(0);
                     }
                 })

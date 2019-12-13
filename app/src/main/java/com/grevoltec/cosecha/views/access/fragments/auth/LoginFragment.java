@@ -25,6 +25,7 @@ import com.grevoltec.cosecha.services.models.response.SpListarAcopiosMovilResult
 import com.grevoltec.cosecha.services.models.response.SpListarFundosMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpListarPlantasMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpListarTurnosMovilResult;
+import com.grevoltec.cosecha.storages.SessionManager;
 import com.grevoltec.cosecha.util.AppException;
 
 import org.androidannotations.annotations.AfterViews;
@@ -63,6 +64,7 @@ public class LoginFragment extends Fragment {
 
     @AfterViews
     protected void onAfterViews() {
+
         cultivos = new ArrayList<>();
         try {
             cultivos.addAll(AppCosecha.getHelper().getCultivoDao().queryForAll());
@@ -128,7 +130,12 @@ public class LoginFragment extends Fragment {
     protected void onLoginUser(final MainActivity activity, SpAutenticacionMovilResult iUser, String username, String password,int cultivo) {
         try {
             AppCosecha.getHelper().clearAllUsuarios();
-            AppCosecha.setUserLogin(new UsuarioEntity(Integer.parseInt(iUser.getIdUsuario()), username, password, iUser.getNombreUsuario(), Integer.parseInt(iUser.getIdEmpresa())));
+            UsuarioEntity usuarioEntity = new UsuarioEntity(Integer.parseInt(iUser.getIdUsuario()), username, password, iUser.getNombreUsuario(), Integer.parseInt(iUser.getIdEmpresa()));
+            //guardando session en el sahden preference
+            SessionManager.deleteUser(activity);
+            SessionManager.saveUser(activity,usuarioEntity);
+
+            AppCosecha.setUserLogin(usuarioEntity);
             AppCosecha.getHelper().getUsuarioDao().createOrUpdate(AppCosecha.getUserLogin());
             activity.loadActivitySecure();
         } catch (SQLException e) {
@@ -237,6 +244,7 @@ public class LoginFragment extends Fragment {
         try {
             Call<List<SpAutenticacionMovilResult>> call = spListarService.GetAutenticacion(username, password, cultivo);
             List<SpAutenticacionMovilResult> result = call.execute().body();
+
             if (result.size() == 1) {
                 showMessage(getString(R.string.cargando_informacion_usuario));
                 SpAutenticacionMovilResult iResult = result.get(0);
