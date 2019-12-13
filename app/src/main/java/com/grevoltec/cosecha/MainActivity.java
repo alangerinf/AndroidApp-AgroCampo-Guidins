@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.grevoltec.cosecha.storages.SessionManager;
+import com.grevoltec.cosecha.app.AppCosecha;
+import com.grevoltec.cosecha.entities.UsuarioEntity;
 import com.grevoltec.cosecha.views.access.fragments.auth.LoginFragment_;
 import com.grevoltec.cosecha.views.access.fragments.auth.SplashFragment_;
+
+import java.sql.SQLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         onPostViews(savedInstanceState);
 
-        if(SessionManager.getUser(this)!=null){
-            loadActivitySecure();
+        try {
+            for(UsuarioEntity user : AppCosecha.getHelper().getUsuarioDao().queryForAll()){
+                AppCosecha.setUserLogin(user);
+                loadActivitySecure();
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 
 

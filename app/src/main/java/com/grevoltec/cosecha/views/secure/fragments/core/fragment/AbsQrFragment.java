@@ -2,14 +2,13 @@ package com.grevoltec.cosecha.views.secure.fragments.core.fragment;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.PointF;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ResultPoint;
@@ -50,35 +49,57 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
 
         beepManager = new BeepManager(getActivity());
 
+        list= new ArrayList<>();
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             initQRCodeReaderView();
         } else {
             requestCameraPermission();
         }
-        list= new ArrayList<>();
 
     }
+    Handler handler = new Handler();
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            beepManager.setBeepEnabled(false);
+            beepManager.setVibrateEnabled(true);
+            beepManager.playBeepSoundAndVibrate();
+        }
+    };
 
     protected void onQRCodeRead(String text) {
 
     }
 
-    private List<String> list = new ArrayList<>();
+    List<String> list = new ArrayList<>();
+    int delay = 1300;
+    private boolean isWaiting = false;
     private BarcodeCallback callback = new BarcodeCallback() {
+
         @Override
         public void barcodeResult(BarcodeResult result) {
-
-            if(result!=null){
-                for(String temp :list){
-                    if(temp.equals(result.getText())){
-                        return;
+            if(!isWaiting) {
+                if(result!=null){
+                    for(String temp :list){
+                        if(temp.equals(result.getText())){
+                            isWaiting = true;
+                            Toast.makeText(getContext(),"QR ya leido",Toast.LENGTH_SHORT).show();
+                            handler.post(runnable);
+                            handler.postDelayed(()-> isWaiting = false,delay);
+                            return;
+                        }
                     }
+                    list.add(result.getText());
+                    onQRCodeRead(result.getText());
+                    isWaiting = true;
+                    handler.post(runnable);
+                    handler.postDelayed(()-> isWaiting = false,delay);
                 }
-                list.add(result.getText());
-                onQRCodeRead(result.getText());
             }
+
             /*
-            if(!isShowenError) {
+            if(!isWaiting) {
 
 
                 String DNI = result.getText();
@@ -137,16 +158,16 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
                         snackbar.getView().setBackgroundColor(ContextCompat.getColor(ctx, R.color.colorAccent));
                         snackbar.show();
 
-                        isShowenError = true;
+                        isWaiting = true;
                         handler.post(runnable);
                         handler.postDelayed(()->{
-                            isShowenError = false;
+                            isWaiting = false;
                         },1500);
 
                     }
                 } catch (Exception e) {
 
-                    isShowenError = true;
+                    isWaiting = true;
                     handler.post(runnable);
 
                     handler.post(() -> {
@@ -156,7 +177,7 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
                     });
 
                     handler.postDelayed(()->{
-                        isShowenError = false;
+                        isWaiting = false;
                     },1500);
                 }
             }
@@ -250,6 +271,7 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
     }
 
     protected void startCameraQR(){
+        list= new ArrayList<>();
         barcodeScannerView.resume();
         barcodeScannerView.setVisibility(View.VISIBLE);
     }

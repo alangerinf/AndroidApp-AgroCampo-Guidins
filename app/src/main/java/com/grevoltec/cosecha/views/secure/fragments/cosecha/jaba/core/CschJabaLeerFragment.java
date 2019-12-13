@@ -2,8 +2,10 @@ package com.grevoltec.cosecha.views.secure.fragments.cosecha.jaba.core;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.grevoltec.cosecha.R;
 import com.grevoltec.cosecha.util.AppException;
@@ -59,12 +61,14 @@ public class CschJabaLeerFragment extends AbsQrFragment {
         try{
             onStepChangeListener.validateQR(text);
             qr = text;
+
             /* jabaViewHolder  */
             jabaViewHolder.lblDni.setText(QrUtils.QR_JABAS.getDNI(qr));
             jabaViewHolder.lblNombre.setText(QrUtils.QR_JABAS.getCosechador(qr));
             jabaViewHolder.lblTurno.setText(QrUtils.QR_JABAS.getFecha(qr)+" - "+onStepChangeListener.getTurnoSelected().getNombreTurno());
             jabaViewHolder.lblNro.setText(QrUtils.QR_JABAS.getNroEtiqueta(qr)+"/"+QrUtils.QR_JABAS.getTotalEtiqueta(qr));
             rowJaba.setVisibility(View.VISIBLE);
+
         }catch (AppException ex){
             lblError.setText(ex.getMessage());
             rowError.setVisibility(View.VISIBLE);
@@ -84,6 +88,7 @@ public class CschJabaLeerFragment extends AbsQrFragment {
  */
     }
 
+    String TAG = CschJabaLeerFragment.class.getSimpleName();
     @Click(R.id.btnLecturar)
     protected void onClickBtnLecturar(){
         rowError.setVisibility(View.GONE);
@@ -97,6 +102,7 @@ public class CschJabaLeerFragment extends AbsQrFragment {
                 rowError.setVisibility(View.VISIBLE);
             }catch (Exception ex1){
                 ex1.printStackTrace();
+                Log.d(TAG,ex1.toString());
                 lblError.setText(R.string.ups_error_inesperado);
                 rowError.setVisibility(View.VISIBLE);
             }

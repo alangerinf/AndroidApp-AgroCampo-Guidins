@@ -25,7 +25,6 @@ import com.grevoltec.cosecha.services.models.response.SpListarAcopiosMovilResult
 import com.grevoltec.cosecha.services.models.response.SpListarFundosMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpListarPlantasMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpListarTurnosMovilResult;
-import com.grevoltec.cosecha.storages.SessionManager;
 import com.grevoltec.cosecha.util.AppException;
 
 import org.androidannotations.annotations.AfterViews;
@@ -131,9 +130,6 @@ public class LoginFragment extends Fragment {
         try {
             AppCosecha.getHelper().clearAllUsuarios();
             UsuarioEntity usuarioEntity = new UsuarioEntity(Integer.parseInt(iUser.getIdUsuario()), username, password, iUser.getNombreUsuario(), Integer.parseInt(iUser.getIdEmpresa()));
-            //guardando session en el sahden preference
-            SessionManager.deleteUser(activity);
-            SessionManager.saveUser(activity,usuarioEntity);
 
             AppCosecha.setUserLogin(usuarioEntity);
             AppCosecha.getHelper().getUsuarioDao().createOrUpdate(AppCosecha.getUserLogin());

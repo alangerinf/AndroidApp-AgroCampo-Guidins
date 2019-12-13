@@ -37,7 +37,6 @@ import com.grevoltec.cosecha.services.models.response.SpSincronizarCosechaMovilR
 import com.grevoltec.cosecha.services.models.response.SpSincronizarPalletMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpSincronizarRecepcionMovilResult;
 import com.grevoltec.cosecha.services.models.response.SpSincronizarViajeMovilResult;
-import com.grevoltec.cosecha.storages.SessionManager;
 import com.grevoltec.cosecha.util.AppException;
 import com.grevoltec.cosecha.views.secure.fragments.cosecha.jaba.CschJabaTabFragment_;
 import com.grevoltec.cosecha.views.secure.fragments.cosecha.reporte.CschReptTabFragment_;
@@ -62,6 +61,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -130,7 +130,11 @@ public class DashboardFragment extends Fragment {
                 .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        SessionManager.deleteUser(getActivity());
+                        try {
+                            AppCosecha.getHelper().clearAllUsuarios();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                         System.exit(0);
                     }
                 })
