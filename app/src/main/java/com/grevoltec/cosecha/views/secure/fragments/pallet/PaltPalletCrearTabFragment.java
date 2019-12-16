@@ -146,6 +146,8 @@ public class PaltPalletCrearTabFragment extends AbsFragment implements IPaltCrea
         }
     }
 
+
+
     @Override
     public void validateQRPallet(String qr) throws AppException {
         QrUtils.QR_PALLETS.validateQR(qr);

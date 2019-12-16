@@ -25,7 +25,7 @@ import java.util.List;
 
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
-    private static final String DATABASE_NAME = "cosecha_database.db";
+    private static final String DATABASE_NAME = "cosecha_databases.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<AcopioEntity, Integer> acopioDao;
@@ -48,17 +48,17 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, AcopioEntity.class);
-            TableUtils.createTable(connectionSource, CamionEntity.class);
-            TableUtils.createTable(connectionSource, CosechaEntity.class);
-            TableUtils.createTable(connectionSource, CultivoEntity.class);
-            TableUtils.createTable(connectionSource, FundoEntity.class);
-            TableUtils.createTable(connectionSource, PalletEntity.class);
-            TableUtils.createTable(connectionSource, PlantaEntity.class);
-            TableUtils.createTable(connectionSource, RecepcionEntity.class);
-            TableUtils.createTable(connectionSource, TurnoEntity.class);
-            TableUtils.createTable(connectionSource, UsuarioEntity.class);
-            TableUtils.createTable(connectionSource, ViajeEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, AcopioEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, CamionEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, CosechaEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, CultivoEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, FundoEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, PalletEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, PlantaEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, RecepcionEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, TurnoEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, UsuarioEntity.class);
+            TableUtils.createTableIfNotExists(connectionSource, ViajeEntity.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -67,6 +67,22 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         onCreate(db, connectionSource);
+
+        try {
+            TableUtils.dropTable(connectionSource, AcopioEntity.class,false);
+            TableUtils.dropTable(connectionSource, CamionEntity.class,true);
+            TableUtils.dropTable(connectionSource, CosechaEntity.class,true);
+            TableUtils.dropTable(connectionSource, CultivoEntity.class,true);
+            TableUtils.dropTable(connectionSource, FundoEntity.class,true);
+            TableUtils.dropTable(connectionSource, PalletEntity.class,true);
+            TableUtils.dropTable(connectionSource, PlantaEntity.class,true);
+            TableUtils.dropTable(connectionSource, RecepcionEntity.class,true);
+            TableUtils.dropTable(connectionSource, TurnoEntity.class,true);
+            TableUtils.dropTable(connectionSource, UsuarioEntity.class,true);
+            TableUtils.dropTable(connectionSource, ViajeEntity.class,true);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Dao<AcopioEntity, Integer> getAcopioDao() throws SQLException{

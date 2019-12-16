@@ -1,17 +1,30 @@
 package com.grevoltec.cosecha;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.grevoltec.cosecha.views.secure.fragments.DashboardFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.cosecha.jaba.CschJabaTabFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.cosecha.reporte.CschReptTabFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.despacho.DespViajeCrearTabFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.pallet.PaltPalletCrearTabFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.pallet.core.PaltPalletCrearFragment;
+import com.grevoltec.cosecha.views.secure.fragments.pallet.core.PaltPalletCrearFragment_;
+import com.grevoltec.cosecha.views.secure.fragments.recepcion.RecepPalletTabFragment_;
 
 public class SecureActivity extends AppCompatActivity {
 
@@ -47,13 +60,45 @@ public class SecureActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.main_fragment);
         int fragments = getSupportFragmentManager().getBackStackEntryCount();
-        if (fragments == 1) {
-            finish();
-            return;
+
+
+        if(     f instanceof CschJabaTabFragment_ ||
+                f instanceof PaltPalletCrearTabFragment_ ||
+                f instanceof DespViajeCrearTabFragment_ ||
+                f instanceof RecepPalletTabFragment_
+        ){
+            final Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.dialog_return);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            Button dialog_positive = dialog.findViewById(R.id.dialog_positive);
+            Button dialog_negative = dialog.findViewById(R.id.dialog_negative);
+
+            dialog_positive.setOnClickListener(v->{
+                dialog.dismiss();
+                super.onBackPressed();
+            });
+            dialog_negative.setOnClickListener(v->{
+                dialog.dismiss();
+            });
+            dialog.show();
+        }else{
+           // Toast.makeText(this,f.getClass().getSimpleName(),Toast.LENGTH_SHORT).show();
+
+            if (fragments == 1) {
+                finish();
+                return;
+            }
+            super.onBackPressed();
+
         }
-        super.onBackPressed();
+
+
     }
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

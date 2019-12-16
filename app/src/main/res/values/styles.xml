@@ -118,4 +118,16 @@
     <style name="AppTheme.Cosecha.Reporte.Item">
         <item name="android:background">#FFFFFF</item>
     </style>
+
+    <style name="tView_Tittle">
+        <item name="android:textSize">@dimen/tViewTittle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="tView_primaryText">
+        <item name="android:textSize">@dimen/tViewPrimsryText</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
 </resources>

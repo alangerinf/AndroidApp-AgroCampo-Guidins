@@ -57,7 +57,9 @@ public class CschJabaTabFragment extends AbsFragment implements ICschJaba {
         this.cosecha = new ArrayList<>();
         setupViewPager(viewpager);
         btnAction.setText(R.string.grabar);
+
     }
+
 
     private void loadDataQRS(){
         String[] data = new String[]{
@@ -137,6 +139,7 @@ public class CschJabaTabFragment extends AbsFragment implements ICschJaba {
         step = 1;
         setTab(0);
     }
+
 
     @Override
     public void goToSecondStep(FundoEntity fundoSelected, TurnoEntity turnoSelected,int cantPersonas) {
@@ -263,5 +266,7 @@ public class CschJabaTabFragment extends AbsFragment implements ICschJaba {
         }
 
     }
+
+
 
 }

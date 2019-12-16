@@ -11,6 +11,8 @@ public class PalletEntity extends AbsRegEntity {
     private int iduser;
     @DatabaseField(columnName = "pallet_qr")
     private String qrpallet;
+    @DatabaseField(columnName = "pallet_peso")
+    private double pesopallet;
     @DatabaseField(columnName = "pallet_hora")
     private String horapallet;
     @DatabaseField(columnName = "pallet_comp")
@@ -111,6 +113,14 @@ public class PalletEntity extends AbsRegEntity {
 
     public void setCosecha(CosechaEntity cosecha) {
         this.cosecha = cosecha;
+    }
+
+    public double getPesopallet() {
+        return pesopallet;
+    }
+
+    public void setPesopallet(double pesopallet) {
+        this.pesopallet = pesopallet;
     }
 
     @Override

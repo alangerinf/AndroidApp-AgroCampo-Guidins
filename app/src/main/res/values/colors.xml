@@ -27,4 +27,7 @@
 
     <color name="colorCompleto">#00bfa5</color>
     <color name="colorIncompleto">#fa315b</color>
+
+
+    <color name="colorPrimaryText">#000</color>
 </resources>

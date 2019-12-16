@@ -32,7 +32,7 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
     protected FrameLayout qrLayout;
     protected View qrImage;
 
-        private BeepManager beepManager;
+    private BeepManager beepManager;
     private DecoratedBarcodeView barcodeScannerView;
 
     protected void setupQRCodeReader(){
@@ -57,6 +57,7 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
         }
 
     }
+
     Handler handler = new Handler();
 
     Runnable runnable = new Runnable() {
@@ -81,10 +82,10 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
         public void barcodeResult(BarcodeResult result) {
             if(!isWaiting) {
                 if(result!=null){
+                    
                     for(String temp :list){
                         if(temp.equals(result.getText())){
                             isWaiting = true;
-                            Toast.makeText(getContext(),"QR ya leido",Toast.LENGTH_SHORT).show();
                             handler.post(runnable);
                             handler.postDelayed(()-> isWaiting = false,delay);
                             return;
@@ -271,7 +272,7 @@ public abstract class AbsQrFragment extends AbsFragment implements ActivityCompa
     }
 
     protected void startCameraQR(){
-        list= new ArrayList<>();
+        setupQRCodeReader();
         barcodeScannerView.resume();
         barcodeScannerView.setVisibility(View.VISIBLE);
     }

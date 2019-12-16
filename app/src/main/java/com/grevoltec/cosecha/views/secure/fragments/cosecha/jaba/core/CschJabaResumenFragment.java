@@ -172,7 +172,8 @@ public class CschJabaResumenFragment extends AbsFragment implements ICschJaba.IC
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setTitle(R.string.seleccione);
-                    String[] items = new String[]{getString(R.string.envase_observado),getString(R.string.envase_perdido)};
+                    //String[] items = new String[]{getString(R.string.envase_observado),getString(R.string.envase_perdido)};
+                    String[] items = new String[]{getString(R.string.envase_observado)};
                     final boolean[] itemsState = new boolean[]{entity.getEnvaseobs()== 1,entity.getEnvaseper()== 1};
                     builder.setMultiChoiceItems(items, itemsState, new DialogInterface.OnMultiChoiceClickListener() {
                         @Override

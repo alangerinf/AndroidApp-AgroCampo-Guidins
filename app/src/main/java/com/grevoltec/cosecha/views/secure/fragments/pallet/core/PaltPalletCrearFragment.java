@@ -4,7 +4,12 @@ import android.content.DialogInterface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.grevoltec.cosecha.R;
@@ -90,6 +95,7 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
     @Click(R.id.btnLecturar)
     protected void onClickBtnLecturar(){
         if(qr== null){
+
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle(R.string.error);
             builder.setMessage(R.string.lea_qr_pallet_para_continuar);
@@ -103,8 +109,51 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
             AlertDialog dialog = builder.create();
             dialog.show();
             return;
+
+        }else {
+
+            final EditText edittext = new EditText(getContext());
+            edittext.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
+            edittext.setGravity(Gravity.CENTER);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            edittext.setLayoutParams(params);
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle(R.string.ingrese_peso);
+            builder.setView(edittext);
+            builder.setPositiveButton(R.string.aceptar, null);
+            builder.setNegativeButton(R.string.cancelar, null);
+            final AlertDialog dialog = builder.create();
+            dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                @Override
+                public void onShow(DialogInterface dialogInterface) {
+                    Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+                    button.setOnClickListener(view -> {
+
+                        try{
+                            double peso = 0;
+                            try{
+                                peso = Double.parseDouble(edittext.getText().toString());
+                            }catch (Exception ex1){
+                                throw new AppException(getString(R.string.ingrese_peso_valido));
+                            }
+                            onStepChangeListener.goToSecondStep(qr);
+                            qr = null;
+                        }catch (AppException ex){
+                            lblError.setText(ex.getMessage());
+                            rowError.setVisibility(View.VISIBLE);
+                        }catch (Exception ex1){
+                            ex1.printStackTrace();
+                            lblError.setText(R.string.ups_error_inesperado);
+                            rowError.setVisibility(View.VISIBLE);
+                        }
+                        dialog.dismiss();
+
+                    });
+                }
+            });
+            dialog.show();
+
         }
-        onStepChangeListener.goToSecondStep(qr);
     }
 
     @Override
@@ -119,18 +168,15 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
 
     /* PalletHeadViewHolder */
     public static class PalletHeadViewHolder extends AbsViewHolder {
-
         public TextView lblNombre;
         public TextView lblFecha;
         public TextView lblNro;
-
         public PalletHeadViewHolder(View view) {
             super(view);
             this.lblNombre = view.findViewById(R.id.lblNombre);
             this.lblFecha = view.findViewById(R.id.lblFecha);
             this.lblNro = view.findViewById(R.id.lblNro);
         }
-
     }
 
 }

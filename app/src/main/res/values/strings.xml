@@ -126,7 +126,7 @@
     <string name="lea_qr_pallet_para_continuar">Lea un Codigo QR de Pallet antes de continuar.</string>
     <string name="qr_jaba_ya_leido">Código QR de Envase ya leido.</string>
     <!-- Cosecha -->
-    <string name="envase_observado">Envase Observado</string>
+    <string name="envase_observado">Venta Nacional</string>
     <string name="envase_perdido">Envase Perdido</string>
     <string name="agrege_registro_para_continuar">Agregue algún registro antes de continuar.</string>
     <string name="confirmacion_registro_local">Se guardó localmente los registros.\nNo se olvide de sincronizar.</string>

@@ -30,4 +30,10 @@
     <dimen name="button_delete_width">80dp</dimen>
     <dimen name="button_delete_corner">4dp</dimen>
 
+
+    <dimen name="tViewTittle">20dp</dimen>
+    <dimen name="tViewPrimsryText">18dp</dimen>
+
+    <dimen name="margin_min">4dp</dimen>
+
 </resources>
