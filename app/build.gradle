@@ -16,7 +16,7 @@ android {
             annotationProcessorOptions {
                 arguments = [
                         "androidManifestFile": "app/build/intermediates/merged_manifests/debug/AndroidManifest.xml",
-                        "resourcePackageName": android.defaultConfig.applicationId,
+                        "resourcePackageName": defaultConfig.applicationId,
                         "logAppenderConsole": "true"
                 ]
             }
@@ -30,8 +30,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false   // This must be after shrinkResources
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
         }
     }
     dexOptions {
@@ -66,5 +67,7 @@ dependencies {
 
     //implementation 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.2'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
+
 
 }

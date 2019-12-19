@@ -26,7 +26,7 @@ import java.util.List;
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "cosecha_databases.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     private Dao<AcopioEntity, Integer> acopioDao;
     private Dao<CamionEntity, Integer> camionDao;
