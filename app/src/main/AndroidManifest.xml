@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.grevoltec.cosecha">
+    package="com.grevoltec.cosechaguiddins">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA" />
@@ -16,16 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".app.AppCosecha"
+        android:name="com.grevoltec.cosechaguiddins.app.AppCosecha"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeSplash" android:label="@string/app_name">
+        <activity android:name="com.grevoltec.cosechaguiddins.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeSplash" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecureActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" >
+        <activity android:name="com.grevoltec.cosechaguiddins.SecureActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" >
         </activity>
     </application>
 </manifest>
