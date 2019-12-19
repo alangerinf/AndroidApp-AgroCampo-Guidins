@@ -21,9 +21,9 @@ public interface SpInsertarService {
 
 
     //Get: api/sp_sincronizar_pallet_movil/1/asdqwesda/2017-10-15/0/adasd155/987654321/adasd848/2017-10-15
-    @GET("api/sp_sincronizar_pallet_movil/{iduser}/{qrpallet}/{horapallet}/{palletcomp}/{imeiequipo}/{nroequipo}/{qrjaba}/{horajaba}")
+    @GET("api/sp_sincronizar_pallet_movil/{iduser}/{qrpallet}/{horapallet}/{palletcomp}/{imeiequipo}/{nroequipo}/{qrjaba}/{horajaba}/{peso}/")// se agrego un slash al final para q pueda enviar un double al ultimo todo: q raro
     @Headers({"Accept: application/json"})
-    Call<List<SpSincronizarPalletMovilResult>> GetSincronizarMovilPallet(@Path("iduser") int iduser, @Path("qrpallet") String qrpallet, @Path("horapallet") String horapallet, @Path("palletcomp") int palletcomp, @Path("imeiequipo") String imeiequipo, @Path("nroequipo") String nroequipo, @Path("qrjaba") String qrjaba, @Path("horajaba") String horajaba);
+    Call<List<SpSincronizarPalletMovilResult>> GetSincronizarMovilPallet(@Path("iduser") int iduser, @Path("qrpallet") String qrpallet, @Path("horapallet") String horapallet, @Path("palletcomp") int palletcomp, @Path("imeiequipo") String imeiequipo, @Path("nroequipo") String nroequipo, @Path("qrjaba") String qrjaba, @Path("horajaba") String horajaba, @Path("peso") double peso);
 
     //Get: api/sp_sincronizar_recepcion_movil/1/2017-10-15/1/asdas544/2017-10-15/qwerasd/948562135/123
     @GET("api/sp_sincronizar_recepcion_movil/{idplanta}/{fecharecep}/{iduser}/{qrpallet}/{horapallet}/{imeiequipo}/{nroequipo}/{pesopallet}/")

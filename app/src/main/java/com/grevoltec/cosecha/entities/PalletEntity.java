@@ -31,7 +31,7 @@ public class PalletEntity extends AbsRegEntity {
     public PalletEntity() {
     }
 
-    public PalletEntity(long poid, String synCodigo, int iduser, String qrpallet, String horapallet, int palletcomp, String imeiequipo, String nroequipo, String qrjaba, String horajaba) {
+    public PalletEntity(long poid, String synCodigo, int iduser, String qrpallet, String horapallet, int palletcomp, String imeiequipo, String nroequipo, String qrjaba, String horajaba,double pesoPallet) {
         super(poid, synCodigo);
         this.iduser = iduser;
         this.qrpallet = qrpallet;
@@ -41,6 +41,7 @@ public class PalletEntity extends AbsRegEntity {
         this.nroequipo = nroequipo;
         this.qrjaba = qrjaba;
         this.horajaba = horajaba;
+        this.pesopallet = pesoPallet;
     }
 
     public int getIduser() {

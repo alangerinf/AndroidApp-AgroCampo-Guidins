@@ -2,10 +2,12 @@ package com.grevoltec.cosecha.views.secure.fragments.pallet;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.icu.text.LocaleDisplayNames;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,22 +92,25 @@ public class PaltPalletCompletarFragment extends AbsFragment {
             AlertDialog dialog = builder.create();
             dialog.show();
         } catch (SQLException e) {
+            Log.e(TAG,"onClickActionButton:"+e.toString());
             e.printStackTrace();
         }
     }
 
+    String TAG = "completar"+this.getClass().getSimpleName();
     private List<PalletEntity> getEntities(){
         List<PalletEntity> result = new ArrayList<>();
         try{
             GenericRawResults<String[]> iGroup = AppCosecha.getHelper().getCosechaDao()
-                    .queryRaw("SELECT pallet_qr, pallet_comp, COUNT(*) "+
+                    .queryRaw("SELECT pallet_qr, pallet_comp, pallet_peso, COUNT(*)"+
                             "FROM pallets "+
                             "GROUP BY pallet_qr, pallet_comp "+
                             "ORDER BY 1");
             for (String[] row: iGroup.getResults()) {
-                result.add(new PalletEntity(-1,"",Integer.parseInt(row[1]), row[0], row[2], Integer.parseInt(row[1]),"","","",""));
+                result.add(new PalletEntity(-1,"",Integer.parseInt(row[1]), row[0], row[3], Integer.parseInt(row[1]),"","","","",Double.parseDouble(row[2])));
             }
         }catch (Exception ex){
+            Log.e(TAG,"getEntities:"+ex.toString());
             ex.printStackTrace();
         }
         return  result;

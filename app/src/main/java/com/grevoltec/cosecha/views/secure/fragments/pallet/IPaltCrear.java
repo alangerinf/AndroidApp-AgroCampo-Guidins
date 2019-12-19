@@ -10,6 +10,7 @@ import java.util.List;
 public interface IPaltCrear {
 
     void goToFirstStep();
+    void setPeso(double peso);
     void goToSecondStep(String qrHeadPalletSelected);
     void readQR(String qr) throws AppException;
     void validateQRPallet(String qr) throws AppException;

@@ -137,6 +137,11 @@ public class PaltPalletEditaTabFragment extends AbsFragment implements IPaltCrea
     }
 
     @Override
+    public void setPeso(double peso) {
+
+    }
+
+    @Override
     public void goToSecondStep(String qrHeadPalletSelected) {
         this.qrHeadPalletSelected = qrHeadPalletSelected;
         step = 2;

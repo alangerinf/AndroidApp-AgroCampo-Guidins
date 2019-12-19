@@ -26,6 +26,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
+import java.security.AlgorithmConstraints;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class PaltPalletCrearTabFragment extends AbsFragment implements IPaltCrea
     protected PaltPalletCrearTabFragment that;
 
     protected String qrHeadPalletSelected;
+    protected double pesoSelected;
     protected List<PalletEntity> items;
     protected IPaltJabaChangeListener listener;
 
@@ -136,6 +138,13 @@ public class PaltPalletCrearTabFragment extends AbsFragment implements IPaltCrea
         setTab(0);
     }
 
+    String TAG = this.getClass().getSimpleName();
+    @Override
+    public void setPeso(double peso) {
+        Log.d(TAG,"try change cambiado "+peso);
+        this.pesoSelected = peso;
+    }
+
     @Override
     public void goToSecondStep(String qrHeadPalletSelected) {
         this.qrHeadPalletSelected = qrHeadPalletSelected;
@@ -173,25 +182,29 @@ public class PaltPalletCrearTabFragment extends AbsFragment implements IPaltCrea
         }
     }
 
+
+    PalletEntity entity = new PalletEntity();
     @Override
     public void readQR(String qr) throws AppException {
+        entity = new PalletEntity();
         validateQRJaba(qr);
-        PalletEntity entity = new PalletEntity();
-
         entity.setIduser(AppCosecha.getUserLogin().getIdUsuario());
         entity.setImeiequipo(AppCosecha.getImei());
         entity.setNroequipo("");
         entity.setQrpallet(qrHeadPalletSelected);
+        entity.setPesopallet(pesoSelected);
         entity.setQrjaba(qr);
         entity.setPalletcomp(0);
         entity.setHorajaba(AppCosecha.getDate());
         entity.setHorapallet(AppCosecha.getDate());
+        Log.d(TAG, entity.toString());
 
         try{
             CosechaEntity cosechaEntity = AppCosecha.getHelper().getCosechaDao().queryBuilder()
                     .where().eq("codigo_qr", qr).queryForFirst();
             entity.setCosecha(cosechaEntity);
         }catch (Exception ex){
+            Log.e(TAG,ex.toString());
             ex.printStackTrace();
         }
 

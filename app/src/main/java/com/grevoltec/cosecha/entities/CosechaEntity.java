@@ -39,7 +39,8 @@ public class CosechaEntity extends AbsRegEntity {
     @DatabaseField(columnName = "qr_tot_etiqueta")
     private int totetiqueta;
 
-    public CosechaEntity() {
+    public CosechaEntity(){
+
     }
 
     public CosechaEntity(int idemp, int idtur, int iduser, String codigoqr, String horaenvase, String imeiequipo, String nroequipo, int envaseobs, int envaseper, String dni, String cosechador,int cantPersonas) {

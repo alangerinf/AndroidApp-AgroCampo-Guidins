@@ -26,13 +26,13 @@ import java.util.List;
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "cosecha_databases.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Dao<AcopioEntity, Integer> acopioDao;
     private Dao<CamionEntity, Integer> camionDao;
     private Dao<CultivoEntity, Integer> cultivoDao;
     private Dao<FundoEntity, Integer> fundoDao;
-    private Dao<PlantaEntity, Integer> plantaDao;;
+    private Dao<PlantaEntity, Integer> plantaDao;
     private Dao<TurnoEntity, Integer> turnoDao;
     private Dao<UsuarioEntity, Integer> usuarioDao;
 
@@ -48,17 +48,17 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTableIfNotExists(connectionSource, AcopioEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, CamionEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, CosechaEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, CultivoEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, FundoEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, PalletEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, PlantaEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, RecepcionEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, TurnoEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, UsuarioEntity.class);
-            TableUtils.createTableIfNotExists(connectionSource, ViajeEntity.class);
+            TableUtils.createTable(connectionSource, AcopioEntity.class);
+            TableUtils.createTable(connectionSource, CamionEntity.class);
+            TableUtils.createTable(connectionSource, CosechaEntity.class);
+            TableUtils.createTable(connectionSource, CultivoEntity.class);
+            TableUtils.createTable(connectionSource, FundoEntity.class);
+            TableUtils.createTable(connectionSource, PalletEntity.class);
+            TableUtils.createTable(connectionSource, PlantaEntity.class);
+            TableUtils.createTable(connectionSource, RecepcionEntity.class);
+            TableUtils.createTable(connectionSource, TurnoEntity.class);
+            TableUtils.createTable(connectionSource, UsuarioEntity.class);
+            TableUtils.createTable(connectionSource, ViajeEntity.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

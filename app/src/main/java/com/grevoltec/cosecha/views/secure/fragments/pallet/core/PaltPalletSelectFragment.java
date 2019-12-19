@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,19 +62,21 @@ public class PaltPalletSelectFragment extends AbsFragment {
         titleViewHolder.lblTitle.setText(entities.size()+" "+getString(R.string.pallets_registrados));
     }
 
+    String TAG = "select pallet"+this.getClass().getSimpleName();
     private List<PalletEntity> getEntities(){
         List<PalletEntity> result = new ArrayList<>();
         try{
-            GenericRawResults<String[]> iGroup = AppCosecha.getHelper().getCosechaDao()
-                    .queryRaw("SELECT pallet_qr, pallet_comp, COUNT(*) "+
+            GenericRawResults<String[]> iGroup = AppCosecha.getHelper().getPalletDao()
+                    .queryRaw("SELECT pallet_qr, pallet_comp, pallet_peso, COUNT(*)"+
                             "FROM pallets "+
                             "WHERE pallet_comp = 0 " +
                             "GROUP BY pallet_qr, pallet_comp "+
                             "ORDER BY 1");
             for (String[] row: iGroup.getResults()) {
-                result.add(new PalletEntity(-1,"",Integer.parseInt(row[1]), row[0], row[2], Integer.parseInt(row[1]),"","","",""));
+                result.add(new PalletEntity(-1,"",Integer.parseInt(row[1]), row[0], row[3], Integer.parseInt(row[1]),"","","","",Double.parseDouble(row[3])));
             }
         }catch (Exception ex){
+            Log.e(TAG,"getEntities"+ex.toString());
             ex.printStackTrace();
         }
         return  result;

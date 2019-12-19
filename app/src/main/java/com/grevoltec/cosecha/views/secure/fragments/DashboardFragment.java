@@ -65,6 +65,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Response;
 
 @EFragment(R.layout.dashboard_layout)
 public class DashboardFragment extends Fragment {
@@ -424,12 +425,22 @@ public class DashboardFragment extends Fragment {
                             entity.getPalletcomp(),
                             entity.getImeiequipo(),
                             AppCosecha.getTelefono(entity.getNroequipo()),
-                            entity.getQrjaba(), entity.getHorajaba()
+                            entity.getQrjaba(), entity.getHorajaba(),
+                            entity.getPesopallet()
                     );
-                    List<SpSincronizarPalletMovilResult> result = call.execute().body();
-                    SpSincronizarPalletMovilResult iResult = result.get(0);
-                    entity.setSynCodigo(""+iResult.getCodigo());
-                    AppCosecha.getHelper().getPalletDao().update(entity);
+
+                    Log.d(TAG,call.request().toString());
+                    Response<List<SpSincronizarPalletMovilResult>> response = call.execute();
+
+                    if(response.isSuccessful()){
+                        List<SpSincronizarPalletMovilResult> result = response.body();
+                        SpSincronizarPalletMovilResult iResult = result.get(0);
+                        entity.setSynCodigo(""+iResult.getCodigo());
+                        AppCosecha.getHelper().getPalletDao().update(entity);
+                    }else {
+                        Log.e(TAG,response.errorBody().string());
+                    }
+
                 }
             }
             //Despacho
@@ -494,6 +505,8 @@ public class DashboardFragment extends Fragment {
             });
             ex.printStackTrace();
         } catch (Exception e) {
+            Log.e(TAG,e.toString());
+            //Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }

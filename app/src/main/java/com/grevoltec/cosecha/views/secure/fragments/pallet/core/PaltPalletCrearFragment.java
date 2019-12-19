@@ -136,6 +136,7 @@ public class PaltPalletCrearFragment extends AbsQrFragment {
                             }catch (Exception ex1){
                                 throw new AppException(getString(R.string.ingrese_peso_valido));
                             }
+                            onStepChangeListener.setPeso(peso);
                             onStepChangeListener.goToSecondStep(qr);
                             qr = null;
                         }catch (AppException ex){
